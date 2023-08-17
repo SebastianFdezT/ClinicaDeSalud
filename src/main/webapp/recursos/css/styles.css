@@ -1,0 +1,8 @@
+body {
+	background-image: url('../img/3-consejos-marketing.jpeg');
+
+	background-repeat: repeat;
+	/* Permite la repetición del patrón en ambas direcciones (horizontal y vertical) */
+	background-attachment: fixed;
+	/* Opcional: fija el fondo para que no se desplace con el contenido */
+}

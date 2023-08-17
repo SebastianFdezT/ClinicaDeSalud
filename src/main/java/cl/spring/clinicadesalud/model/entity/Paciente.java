@@ -1,12 +1,15 @@
 package cl.spring.clinicadesalud.model.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,17 +23,17 @@ public class Paciente {
 	private String nombrePaciente;
 	@Column(name = "Fecha_Nacimiento")
 	private LocalDate fechaNacimiento;
-
+	@OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
+    private List<HistorialMedico> historialesMedicos;
+	
 	public Paciente() {
 
 	}
 
-	public Paciente(int idPaciente, String nombrePaciente, LocalDate fechaNacimiento) {
-		super();
-		this.idPaciente = idPaciente;
-		this.nombrePaciente = nombrePaciente;
-		this.fechaNacimiento = fechaNacimiento;
-	}
+	public Paciente(String nombrePaciente, LocalDate fechaNacimiento) {
+        this.nombrePaciente = nombrePaciente;
+        this.fechaNacimiento = fechaNacimiento;
+    }
 
 	public int getIdPaciente() {
 		return idPaciente;
@@ -55,4 +58,12 @@ public class Paciente {
 	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
+	
+	public List<HistorialMedico> getHistorialesMedicos() {
+        return historialesMedicos;
+    }
+
+    public void setHistorialesMedicos(List<HistorialMedico> historialesMedicos) {
+        this.historialesMedicos = historialesMedicos;
+    }
 }

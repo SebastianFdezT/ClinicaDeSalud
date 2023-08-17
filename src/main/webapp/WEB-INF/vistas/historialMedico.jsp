@@ -13,30 +13,31 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css"
 	href="/clinicadesalud/res/css/styles.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.css" />
 </head>
 <body>
 	<%-- <%@ include file='navbar.jsp'%> --%>
 	<div class="container">
 		<div class="text-center">
-			<h1>Lista de pacientes</h1>
+			<h1>Lista de historial medico del paciente</h1>
 		</div>
 		<table class="table" id="tabla">
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Id</th>
-					<th scope="col">Nombre</th>
-					<th scope="col">Fecha de nacimiento</th>
-					<th scope="col"></th>
+					<th scope="col">Fecha de la Cita</th>
+					<th scope="col">Sintomas</th>
+					<th scope="col">Diagnostico</th>
+					<th scope="col">Tratamiento</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="paciente" items="${pacientes}">
+				<c:forEach var="historialMedico" items="${historialMedico}">
 					<tr>
-						<td>${paciente.idPaciente}</td>
-						<td>${paciente.nombrePaciente}</td>
-						<td>${paciente.fechaNacimiento}</td>
-						<td><a href="mostrar-historial/${paciente.idPaciente}">Mostrar Historial</a></td>
+						<td>${historialMedico.idHistorialMedico}</td>
+						<td>${historialMedico.fechaCita}</td>
+						<td>${historialMedico.sintomas}</td>
+						<td>${historialMedico.diagnostico}</td>
+						<td>${historialMedico.tratamiento}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -53,15 +54,5 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-	<script
-		src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-	<script
-		src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-	<script> 
-		var tabla = document.querySelector("#tabla");
-		var datatable = new DataTable(tabla);
-	</script>
 </body>
 </html>
