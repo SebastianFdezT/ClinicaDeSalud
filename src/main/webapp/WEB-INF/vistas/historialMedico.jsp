@@ -15,7 +15,7 @@
 	href="/clinicadesalud/res/css/styles.css">
 </head>
 <body>
-	<%-- <%@ include file='navbar.jsp'%> --%>
+	<%@ include file='navbar.jsp'%>
 	<div class="container">
 		<div class="text-center">
 			<h1>Lista de historial medico del paciente</h1>

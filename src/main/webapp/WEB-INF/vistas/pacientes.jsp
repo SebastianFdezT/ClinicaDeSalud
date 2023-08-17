@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.css" />
 </head>
 <body>
-	<%-- <%@ include file='navbar.jsp'%> --%>
+	<%@ include file='navbar.jsp'%>
 	<div class="container">
 		<div class="text-center">
 			<h1>Lista de pacientes</h1>

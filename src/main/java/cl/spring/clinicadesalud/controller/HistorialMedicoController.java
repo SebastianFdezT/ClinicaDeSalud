@@ -2,7 +2,10 @@ package cl.spring.clinicadesalud.controller;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,5 +29,16 @@ public class HistorialMedicoController {
 	    
 	    return modelAndView;
 	}
-
+	
+	@GetMapping("/editar-historial/{idHistorialMedico}")
+	@Transactional
+	public String mostrarPaginaEdicion(@PathVariable int idHistorialMedico, Model model) {
+	    try {
+	    	HistorialMedico historialMedico = hms.getOne(idHistorialMedico);
+	        model.addAttribute("historialMedico", historialMedico);
+	        return "editarHistorialMedico";
+	    } catch (Exception e) {
+	        throw new RuntimeException("Error al procesar la solicitud", e);
+	    }
+	}
 }

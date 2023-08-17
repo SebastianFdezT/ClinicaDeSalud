@@ -21,11 +21,7 @@ public class HistorialMedico {
 	@ManyToOne
     @JoinColumn(name = "Paciente_ID")
     private Paciente paciente;
-	/*
-	 * @ManyToOne
-	 * 
-	 * @JoinColumn(name = "Doctor_ID") private Doctor doctor;
-	 */
+
 	@Column(name = "Fecha_Cita")
 	private LocalDate fechaCita;
 	@Column(name = "Sintomas")
@@ -62,12 +58,6 @@ public class HistorialMedico {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
-
-	/*
-	 * public Doctor getDoctor() { return doctor; }
-	 * 
-	 * public void setDoctor(Doctor doctor) { this.doctor = doctor; }
-	 */
 
     public LocalDate getFechaCita() {
         return fechaCita;
